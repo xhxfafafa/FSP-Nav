@@ -1,3 +1,5 @@
+> 当前论文方案：[FSP-Nav 方法与实验设计](docs/FSP-Nav_方法与实验设计.md) · [架构 SVG](docs/figures/FSP-Nav_架构.svg)。该方案尚待实验验证；下文为原始 ETPNav 项目说明。
+
 <div align="center">
 
 <h1>ETPNav: Evolving Topological Planning for <br /> Vision-Language Navigation in <br /> Continuous Environments</h1>

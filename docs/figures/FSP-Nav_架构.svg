@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <svg xmlns="http://www.w3.org/2000/svg" width="1680" height="930" viewBox="0 0 1680 930" role="img" aria-labelledby="title desc">
+  <title id="title">FSP-Nav 导航架构</title>
+  <desc id="desc">导航闭环中的 IGSF 融合同一 ghost 的来源观测；分段与停止图规划器根据历史观测比较 ghost、当前位置 STOP 与返回已访问节点 STOP。</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#526678"/></marker>
+    <marker id="t" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#3d8279"/></marker>
+    <marker id="o" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#b96f43"/></marker>
+    <style>
+      text{font-family:"PingFang SC","Noto Sans CJK SC","Microsoft YaHei",Arial,sans-serif;fill:#2c3947;font-size:22px}.head{font-size:25px;font-weight:600}.accent{fill:#9d592f}.tealtext{fill:#367c74}.small{font-size:18px;fill:#55697b}.tiny{font-size:16px;fill:#697989}.math{font-family:"Times New Roman",serif;font-style:italic;font-size:24px}.panel{fill:#fff;stroke:#d7e0e7;stroke-width:1.5}.blue{fill:#eef4f9;stroke:#7597b5;stroke-width:1.7}.teal{fill:#eff7f5;stroke:#67a49c;stroke-width:1.7}.orange{fill:#fcf3eb;stroke:#c17a4e;stroke-width:1.7}.gray{fill:#f5f7f8;stroke:#98a7b5;stroke-width:1.7}.f{fill:none;stroke:#526678;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#a)}.tf{fill:none;stroke:#3d8279;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#t)}.of{fill:none;stroke:#b96f43;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#o)}.l{fill:none;stroke:#879aac;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}.dash{fill:none;stroke:#b96f43;stroke-width:1.5;stroke-dasharray:5 5;stroke-linecap:round}
+    </style>
+  </defs>
+  <rect width="1680" height="930" fill="#fff"/>
+
+  <g id="loop">
+    <rect class="panel" x="20" y="24" width="1640" height="400" rx="8"/>
+    <text class="head" x="48" y="61">导航闭环</text>
+    <rect class="blue" x="62" y="87" width="145" height="48" rx="5"/><text x="135" y="118" text-anchor="middle">指令</text>
+    <rect class="blue" x="250" y="87" width="150" height="48" rx="5"/><text x="325" y="118" text-anchor="middle">文本编码</text><path class="f" d="M207 111H250"/><path class="f" d="M400 111H448"/>
+    <g id="tokens"><rect class="blue" x="448" y="99" width="27" height="22"/><rect class="blue" x="475" y="99" width="27" height="22"/><rect class="blue" x="502" y="99" width="27" height="22"/><rect class="blue" x="529" y="99" width="27" height="22"/><rect x="556" y="99" width="30" height="22" fill="#fff" stroke="#7597b5" stroke-width="1.4"/><text class="small" x="571" y="117" text-anchor="middle">…</text><text class="math" x="518" y="86" text-anchor="middle">W</text></g>
+    <path class="l" d="M586 110H1130"/><path class="f" d="M866 110V186"/><path class="f" d="M1130 110V186"/>
+    <g id="rgbd"><path d="M63 199L130 179V236L63 256Z" fill="#dbe7ef" stroke="#7597b5" stroke-width="1.5"/><path d="M76 189L143 169V226L76 246Z" fill="#eaf1f5" stroke="#7597b5" stroke-width="1.5"/><path d="M89 179L157 159V216L89 236Z" fill="#cbd9e4" stroke="#7597b5" stroke-width="1.5"/><rect x="112" y="182" width="22" height="30" fill="#7b8995" opacity=".75"/><text x="110" y="287" text-anchor="middle">RGB-D</text></g>
+    <rect class="blue" x="250" y="187" width="155" height="56" rx="5"/><text x="327" y="222" text-anchor="middle">视觉编码</text><path class="f" d="M157 215H250"/>
+    <rect class="teal" x="480" y="187" width="180" height="56" rx="5"/><text x="570" y="222" text-anchor="middle">在线拓扑图</text><path class="tf" d="M405 215H480"/>
+    <g id="map"><path class="l" d="M704 215L739 187L774 211L750 245L716 236ZM739 187L749 157"/><circle cx="704" cy="215" r="8" fill="#eff7f5" stroke="#52938b" stroke-width="1.5"/><circle cx="739" cy="187" r="8" fill="#eff7f5" stroke="#52938b" stroke-width="1.5"/><circle cx="774" cy="211" r="8" fill="#eff7f5" stroke="#52938b" stroke-width="1.5"/><circle cx="750" cy="245" r="8" fill="#eff7f5" stroke="#52938b" stroke-width="1.5"/><circle cx="716" cy="236" r="8" fill="#eff7f5" stroke="#52938b" stroke-width="1.5"/><circle cx="749" cy="157" r="8" fill="#eff7f5" stroke="#52938b" stroke-width="1.5"/><text class="small" x="740" y="286" text-anchor="middle">图节点</text></g><path class="tf" d="M660 215H694"/>
+    <rect class="orange" x="796" y="187" width="140" height="56" rx="5"/><text class="accent" x="866" y="222" text-anchor="middle" font-weight="600">IGSF</text><path class="of" d="M782 215H796"/>
+    <rect class="orange" x="1005" y="187" width="250" height="56" rx="5"/><text class="accent" x="1130" y="222" text-anchor="middle" font-weight="600">分段与停止规划</text><path class="of" d="M936 215H1005"/>
+    <rect class="gray" x="1335" y="187" width="150" height="56" rx="5"/><text x="1410" y="222" text-anchor="middle">控制器</text><path class="f" d="M1255 215H1335"/><text class="tiny" x="1295" y="201" text-anchor="middle">目标节点</text>
+    <rect class="gray" x="1171" y="82" width="88" height="43" rx="5"/><text x="1215" y="110" text-anchor="middle">STOP</text><path class="f" d="M1215 187V125"/>
+    <path class="f" d="M782 243V278H970V215H1005"/><text class="math" x="885" y="270" text-anchor="middle">Gₜ</text>
+    <path class="tf" d="M740 252V322H1035V243"/><text class="small tealtext" x="876" y="310" text-anchor="middle">已访问路径 Hₜ</text>
+    <g id="environment">
+      <rect x="1334" y="292" width="152" height="54" fill="#f7f9fa" stroke="#8a9eaf" stroke-width="2"/>
+      <rect x="1339" y="297" width="142" height="44" fill="#fff" stroke="#a9b9c7" stroke-width="1.5"/>
+      <path d="M1341 299H1377V318M1426 299V317M1480 299H1463M1341 321H1358M1341 339H1370V331M1461 339H1480V319H1459V331" fill="none" stroke="#718699" stroke-width="2.7" stroke-linecap="square" stroke-linejoin="miter"/>
+      <path d="M1406 311L1420 319L1408 328Z" fill="#a4d3d6" stroke="#718699" stroke-width="1.3"/>
+      <text x="1462" y="370" text-anchor="middle">环境</text>
+    </g><path class="f" d="M1410 243V292"/><path class="f" d="M1362 346V399H112V300"/><text class="math" x="720" y="388" text-anchor="middle">t + 1</text>
+  </g>
+
+  <g id="igsf">
+    <rect class="panel" x="20" y="455" width="800" height="395" rx="8"/><text class="head accent" x="42" y="490">IGSF · 来源融合</text><text class="tiny" x="265" y="489">为同一 ghost 聚合多次观测</text><path d="M36 507H804" stroke="#e0e7ec" stroke-width="1"/>
+    <text class="small" x="58" y="557">同一 ghost 的来源</text>
+    <text class="math" x="58" y="620">p₁</text><rect class="blue" x="82" y="599" width="96" height="22"/><text class="small" x="158" y="616">…</text><text class="math" x="58" y="675" fill="#9ca7b1">p₁</text><rect x="82" y="654" width="96" height="22" fill="#f0f2f3" stroke="#b7c0c8" stroke-width="1.3"/><text x="188" y="675" fill="#b45f50">×</text><text class="math" x="58" y="730">p₂</text><rect class="teal" x="82" y="709" width="96" height="22"/>
+    <path class="tf" d="M180 610H210V680H235"/><path class="l" d="M180 720H210V680"/><rect class="teal" x="235" y="657" width="67" height="45" rx="5"/><text x="268" y="686" text-anchor="middle">去重</text><path class="tf" d="M302 680H330"/>
+    <text class="tealtext" x="381" y="575" text-anchor="middle">来源记忆</text><rect class="teal" x="330" y="595" width="102" height="168" rx="5"/><rect class="blue" x="344" y="612" width="74" height="21"/><rect class="teal" x="344" y="650" width="74" height="21"/><rect class="blue" x="344" y="688" width="74" height="21"/><rect x="344" y="726" width="74" height="21" fill="#fff" stroke="#98a7b5" stroke-width="1"/><path class="tf" d="M432 680H463"/>
+    <rect class="orange" x="463" y="572" width="327" height="202" rx="6"/><text class="accent" x="627" y="605" text-anchor="middle" font-weight="600">指令加权</text><rect class="blue" x="570" y="527" width="104" height="21"/><text class="math" x="622" y="519" text-anchor="middle">W</text><path class="f" d="M622 548V572"/>
+    <text class="math" x="490" y="647">h₁</text><rect class="blue" x="520" y="628" width="65" height="19"/><text class="math" x="599" y="646">· α₁</text><text class="math" x="490" y="699">h₂</text><rect class="teal" x="520" y="680" width="65" height="19"/><text class="math" x="599" y="698">· α₂</text><text class="math" x="490" y="751">h₃</text><rect class="blue" x="520" y="732" width="65" height="19"/><text class="math" x="599" y="750">· α₃</text><path class="l" d="M650 637H666M650 689H666M650 741H666M666 637V742M666 690H675"/><circle cx="695" cy="690" r="20" fill="#fff" stroke="#98a7b5" stroke-width="1.5"/><text class="math" x="695" y="699" text-anchor="middle">Σ</text><path class="of" d="M715 690H735"/><rect class="orange" x="735" y="676" width="42" height="28" rx="3"/><text class="math" x="756" y="660" text-anchor="middle">h_g</text><text class="tiny accent" x="756" y="730" text-anchor="middle">ghost 特征</text>
+  </g>
+
+  <g id="joint-stop">
+    <rect class="panel" x="850" y="455" width="810" height="395" rx="8"/>
+    <text class="head accent" x="873" y="490">指令分段与停止联合规划</text>
+    <path d="M866 507H1644" stroke="#e0e7ec" stroke-width="1"/>
+
+    <text class="small" x="886" y="548">指令片段</text>
+    <rect class="blue" x="890" y="564" width="168" height="48" rx="5"/><text class="small" x="974" y="594" text-anchor="middle">穿过客厅</text>
+    <rect class="blue" x="1077" y="564" width="168" height="48" rx="5"/><text class="small" x="1161" y="594" text-anchor="middle">左转进走廊</text>
+    <rect class="blue" x="1264" y="564" width="183" height="48" rx="5"/><text class="small" x="1355" y="594" text-anchor="middle">停在楼梯旁</text>
+    <path class="l" d="M1058 588H1077M1245 588H1264"/>
+
+    <text class="small" x="891" y="673">已访问节点与当前观测</text>
+    <circle cx="915" cy="712" r="14" fill="#eef4f9" stroke="#7597b5" stroke-width="1.4"/>
+    <circle cx="969" cy="712" r="14" fill="#eef4f9" stroke="#7597b5" stroke-width="1.4"/>
+    <circle cx="1023" cy="712" r="14" fill="#eff7f5" stroke="#52938b" stroke-width="1.4"/>
+    <path class="l" d="M929 712H955M983 712H1009"/>
+    <text class="tiny tealtext" x="1023" y="748" text-anchor="middle">当前位置</text>
+
+    <rect class="orange" x="1102" y="653" width="205" height="108" rx="5"/>
+    <text class="accent" x="1204" y="687" text-anchor="middle" font-weight="600">分段状态与终点证据</text>
+    <text class="small" x="1204" y="720" text-anchor="middle">已完成 / 待完成</text>
+    <text class="small" x="1204" y="747" text-anchor="middle">各位置的停止分数</text>
+    <path class="of" d="M1355 612V633H1204V653"/>
+    <path class="tf" d="M1037 712H1102"/>
+
+    <rect class="gray" x="1356" y="653" width="260" height="108" rx="5"/>
+    <text x="1486" y="688" text-anchor="middle" font-weight="600">图上联合决策</text>
+    <text class="small" x="1486" y="720" text-anchor="middle">ghost / 当前 STOP</text>
+    <text class="small" x="1486" y="748" text-anchor="middle">返回已访问节点后 STOP</text>
+    <path class="of" d="M1307 707H1356"/>
+    <text class="tiny" x="1486" y="807" text-anchor="middle">输出目标节点或停止动作</text>
+    <path class="f" d="M1486 761V785"/>
+  </g>
+  <g id="legend"><path class="f" d="M36 892H90"/><text class="small" x="106" y="898">推理数据流</text><path class="tf" d="M260 892H314"/><text class="small" x="330" y="898">观测与历史</text><path class="of" d="M505 892H559"/><text class="small" x="575" y="898">决策信息</text></g>
+</svg>
